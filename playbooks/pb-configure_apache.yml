@@ -1,6 +1,6 @@
 ---
 - name: Configure Apache Service
-  hosts: awsloki
+  hosts: dev-la
   become: true
   tasks:
 
@@ -14,7 +14,7 @@
     package:
       name: httpd
       state: latest
-    when: ansible_distribution == "RedHat"
+    when: ansible_distribution in ["CentOS","RedHat"]
    #when: ansible_distribution == "RedHat" and ansible_distribution_version == "9"
    #Use $ ansible awsloki -m gather_facts > to find variables to use when 'when' conditional
 
@@ -23,20 +23,20 @@
       name: httpd
       state: started
       enabled: true
-    when: ansible_distribution == "RedHat"
+    when: ansible_distribution in ["CentOS","RedHat"]
 
   - name: Install firewalld
     package: 
       name: firewalld
       state: latest
-    when: ansible_distribution == "RedHat"
+    when: ansible_distribution in ["CentOS","RedHat"]
 
   - name: Start and Enable firewalld with Systemd
     systemd:
       name: firewalld
       state: started
       enabled: true
-    when: ansible_distribution == "RedHat"
+    when: ansible_distribution in ["CentOS","RedHat"]
 
   - name: Add http service to firewall
     firewalld:
@@ -44,4 +44,4 @@
       state: enabled
       immediate: true
       permanent: true
-    when: ansible_distribution == "RedHat"
+    when: ansible_distribution in ["CentOS","RedHat"]
