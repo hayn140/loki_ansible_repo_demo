@@ -1,0 +1,26 @@
+- name: Add groups aloha and hawaii
+  ansible.builtin.group:
+    name: '{{ item }}'
+    state: present
+  loop:
+    - aloha
+    - hawaii
+
+- name: Add user simone
+  ansible.builtin.user:
+    name: simone
+    state: present
+    password: "$1$D0Gf01HH$FlW10vPHgQFdrt5oHlSVi/"
+    groups:
+      - aloha
+      - hawaii
+    append: true
+    expires: -1
+
+- name: Add simone sudoers file
+  ansible.builtin.copy:
+    src: simone_sudoers
+    dest: /etc/sudoers.d/simone
+    owner: root
+    group: root
+    mode: 0440

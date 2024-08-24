@@ -1,0 +1,4 @@
+- name: add ssh key for simone
+  ansible.posix.authorized_key:
+    user: simone
+    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGQ/V8eDy9NDFCZw8+fFQ5p9ZDEqsHBHiyquRv1iMvomh9R5mzaOTgFEmTZ5g/wmlyyRRKb3o07HPa7VM0POmonIZS02BWwMH8h2t6O8oOmlNnWRbc9MjeBRVGk2itRYx/xAGGh7SbODS9HOjpI3wTHt66NEkam42B6jAVb3pr05RoWXEySsIm22hJ4KLyf/fs97dCFnbF5oxXCZQ178fxspNj6jEtCOcdjcei6KboMnA+cps6RvSDpi7LpAXQmhxgXbgZTOrlBIFkMmcO0wKjapi+wjTunpXLFakTPrVpjzjgsREXlrpj+1tVA8OeO2VkNfGIcZFr1qQrnUqospiJ lalohikea@dev-ansible.procore.prod1"

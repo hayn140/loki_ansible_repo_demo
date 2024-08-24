@@ -1,0 +1,12 @@
+---
+ 
+- hosts: all
+  become: true
+  roles: 
+    - user_add
+    - base
+    - workstations
+    - web_servers
+    - firewall_config
+    - db_servers
+    - file_servers
