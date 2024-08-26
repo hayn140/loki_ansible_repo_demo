@@ -2,18 +2,14 @@
   ansible.builtin.group:
     name: '{{ item }}'
     state: present
-  loop:
-    - aloha
-    - hawaii
+  loop: '{{ group_list }}'
 
 - name: Add user simone
   ansible.builtin.user:
     name: simone
     state: present
     password: "$1$D0Gf01HH$FlW10vPHgQFdrt5oHlSVi/"
-    groups:
-      - aloha
-      - hawaii
+    groups: '{{ group_list }}'
     append: true
     expires: -1
 
