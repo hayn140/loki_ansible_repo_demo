@@ -1,0 +1,5 @@
+# defaults for user_add role
+
+group_list:
+  - aloha
+  - hawaii
