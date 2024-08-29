@@ -3,12 +3,12 @@
 #
 - name: Remove shared directories
   ansible.builtin.file:
-    path: '{{ item }]'
+    path: '{{ item }}'
     state: absent
   tags: clean_user
   loop:
     - /rhome/diego/
-    -/rhome/goku/
+    - /rhome/goku/
 
 - name: Remove users from system
   ansible.builtin.user:

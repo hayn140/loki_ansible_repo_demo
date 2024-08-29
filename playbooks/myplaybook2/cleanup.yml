@@ -4,7 +4,7 @@
   hosts: control_host
   become: true
   become_user: root
-  role:
+  roles:
     - clean_unmount
     - clean_setup_autofs
     - clean_setup_map_files
