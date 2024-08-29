@@ -1,0 +1,20 @@
+---
+# tasks file for clean_autofs_user_add
+#
+- name: Remove shared directories
+  ansible.builtin.file:
+    path: '{{ item }]'
+    state: absent
+  tags: clean_user
+  loop:
+    - /rhome/diego/
+    -/rhome/goku/
+
+- name: Remove users from system
+  ansible.builtin.user:
+    name: '{{ item }}'
+    state: absent
+  tags: clean_user
+  loop:
+    - diego
+    - goku

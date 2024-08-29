@@ -1,0 +1,9 @@
+---
+# tasks file for clean_setup_autofs
+#
+- name: Disable autofs with systemd
+  ansible.builtin.service:
+    name: autofs
+    state: stopped
+    enabled: false
+# ignore_errors: yes

@@ -1,0 +1,11 @@
+---
+# tasks file for clean_setup_map_files
+#
+- name: Remove Master Map & Map File
+  ansible.builtin.file:
+    path: '{{ item }}'
+    state: absent
+  tags: test
+  loop:
+    - /etc/auto.master.d/contractors.autofs
+    - /etc/auto.rhome

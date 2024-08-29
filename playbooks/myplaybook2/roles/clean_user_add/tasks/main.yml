@@ -1,0 +1,7 @@
+# tasks file for clean_user_add
+#
+- name: Remove users from system
+  ansible.builtin.user:
+    name: '{{ nfs_name }}'
+    state: absent
+    remove: true

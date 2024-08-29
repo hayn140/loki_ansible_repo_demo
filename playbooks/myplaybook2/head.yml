@@ -1,0 +1,20 @@
+---
+# This playbook will setup the hosts as NFS servers to map two different user's remote directories
+
+- hosts: client_hosts
+  become: true
+  become_user: root
+  roles:
+    - setup_nfs_server
+    - firewall_config
+    - user_add
+    - setup_exports
+
+- hosts: control_host
+  become: true
+  become_user: root
+  roles:
+    - setup_autofs
+    - setup_map_files
+    - autofs_user_add
+#   - setup_fstab

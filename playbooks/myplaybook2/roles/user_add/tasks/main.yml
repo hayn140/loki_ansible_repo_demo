@@ -1,0 +1,20 @@
+---
+# tasks file for user_add
+# This taskbook will add user 'diego' to dev-performance-la client
+# and user 'goku' to stage-web-la client
+#
+- name: Add user groups to client hosts with specified gid
+  ansible.builtin.group:
+    name: '{{ nfs_name }}'
+    state: present
+    gid: '{{ nfs_id }}'
+
+- name: Add users to client hosts with /rhome/ directories
+  ansible.builtin.user:
+    name: '{{ nfs_name }}'
+    state: present
+    uid: '{{ nfs_id }}'
+    group: '{{ nfs_name }}'
+    home: '{{ nfs_home_dir }}'
+    create_home: true
+    expires: -1

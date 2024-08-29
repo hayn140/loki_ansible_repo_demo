@@ -1,0 +1,19 @@
+---
+# tasks file for setup_map_files
+#
+- name: Add Master map file
+  ansible.builtin.copy:
+    src: master_map_file.autofs
+    dest: /etc/auto.master.d/contractors.autofs
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Add map file
+  ansible.builtin.copy:
+    src: map_file
+    dest: /etc/auto.rhome
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart autofs

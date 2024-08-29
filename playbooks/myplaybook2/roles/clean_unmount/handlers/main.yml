@@ -1,0 +1,11 @@
+---
+# handlers file for clean_unmount
+#
+- name: Stop and disable nfs service with systemd
+  ansible.builtin.service:
+    name: nfs-server
+    state: stopped
+    enabled: false
+  delegate_to: '{{ item }}'
+  with_items: "{{ groups['client_hosts'] }}"
+  tags: unmount

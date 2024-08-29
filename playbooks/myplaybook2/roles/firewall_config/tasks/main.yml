@@ -1,0 +1,14 @@
+---
+# tasks file for firewall_config
+# This taskbook will enable the services for nfs-servers
+#
+- name: Add nfs-related services to firewall
+  ansible.posix.firewalld:
+    service: '{{ item }}'
+    state: enabled
+    immediate: true
+    permanent: true
+  loop:
+    - rpc-bind
+    - mountd
+    - nfs

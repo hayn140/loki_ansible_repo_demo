@@ -1,0 +1,14 @@
+---
+# tasks file for setup_nfs_server
+# This taskbook will install, start, and enable the clients to be nfs-servers
+#
+- name: Install nfs-utils
+  ansible.builtin.package:
+    name: nfs-utils
+    state: latest
+
+- name: Start and Enable nfs-server with systemd
+  ansible.builtin.service:
+    name: nfs-server
+    state: started
+    enabled: true

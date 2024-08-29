@@ -1,0 +1,10 @@
+---
+# defaults file for autofs_user_add
+#
+autofs_users:
+  - name: diego
+    id: 1200
+    home_dir: /rhome/diego
+  - name: goku
+    id: 1201
+    home_dir: /rhome/goku

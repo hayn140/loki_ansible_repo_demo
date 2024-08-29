@@ -1,0 +1,7 @@
+---
+# handlers file for setup_exports
+#
+- name: restart nfs server
+  ansible.builtin.service:
+    name: nfs-server
+    state: restarted

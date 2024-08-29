@@ -1,0 +1,7 @@
+---
+# handlers file for setup_map_files
+#
+- name: restart autofs
+  ansible.builtin.service:
+    name: autofs
+    state: restarted

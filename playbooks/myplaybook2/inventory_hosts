@@ -1,0 +1,6 @@
+[client_hosts]
+dev-performance-la.procore.prod1
+stage-web-la.procore.prod1-153
+
+[control_host]
+dev-app-la.procore.prod1

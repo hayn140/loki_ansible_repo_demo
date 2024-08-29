@@ -1,0 +1,11 @@
+---
+# tasks file for clean_unmount
+#
+- name: Unmount all autofs mounted drives
+  ansible.posix.mount:
+    path: '{{ item.mount_point }}'
+    state: unmounted
+  loop:
+    '{{ nfs_exports }}'
+  notify: 'Stop and disable nfs service with systemd'
+  tags: unmount

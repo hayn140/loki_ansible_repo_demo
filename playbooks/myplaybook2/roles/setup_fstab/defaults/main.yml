@@ -1,0 +1,8 @@
+---
+# defaults file for setup_fstab
+#
+fstab_info:
+  - src: 10.1.31.152:/rhome/diego
+    path: /rhome/diego
+  - src: 10.1.31.153:/rhome/goku
+    path: /rhome/goku

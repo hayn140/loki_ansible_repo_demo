@@ -1,0 +1,13 @@
+---
+# tasks file for setup_fstab
+#
+- name: Add entries to fstab file
+  ansible.posix.mount:
+    backup: true
+    fstype: nfs
+    state: mounted
+    src: '{{ item.src }}'
+    path: '{{ item.path }}'
+    opts: defaults
+  loop:
+    '{{ fstab_info }}'

@@ -1,0 +1,13 @@
+---
+# tasks file for clean_setup_fstab
+#
+- name: remove entries from fstab file
+  ansible.builtin.lineinfile:
+    path: /etc/fstab
+    regexp: "^{{ item }}"
+    line: ""
+    backup: true
+  tags: clean_fstab
+  loop:
+    - '10.1.31.152'
+    - '10.1.31.153'

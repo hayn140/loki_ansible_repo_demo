@@ -1,0 +1,21 @@
+---
+
+- name: This play will cleanup actions done on control_host
+  hosts: control_host
+  become: true
+  become_user: root
+  role:
+    - clean_unmount
+    - clean_setup_autofs
+    - clean_setup_map_files
+    - clean_autofs_user_add
+#   - clean_setup_fstab
+
+- name: This play will cleanup all actions done on client_hosts
+  hosts: client_hosts
+  become: true
+  become_user: root
+  roles:
+  - clean_firewall_config
+  - clean_user_add
+  - clean_setup_exports

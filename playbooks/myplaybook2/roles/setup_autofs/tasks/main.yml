@@ -1,0 +1,13 @@
+---
+# tasks file for setup_autofs
+#
+- name: Install AutoFS
+  ansible.builtin.package:
+    name: autofs
+    state: latest
+
+- name: Start and Enable autofs with Systemd
+  ansible.builtin.service:
+    name: autofs
+    state: started
+    enabled: true

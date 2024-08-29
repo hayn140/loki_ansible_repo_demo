@@ -1,0 +1,6 @@
+---
+# defaults file for clean_unmount
+#
+nfs_exports:
+  - mount_point: /rhome/diego/
+  - mount_point: /rhome/goku/

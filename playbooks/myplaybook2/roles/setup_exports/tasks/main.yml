@@ -1,0 +1,9 @@
+---
+# tasks file for setup_exports
+#
+- name: Add paths to exports file
+  ansible.builtin.lineinfile:
+    path: /etc/exports
+    line: "{{ nfs_home_dir }}   10.1.31.151(rw,sync,no_root_squash)"
+    backup: true
+  notify: restart nfs server

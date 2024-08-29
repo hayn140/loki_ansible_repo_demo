@@ -1,0 +1,13 @@
+---
+# tasks file for clean_firewall_config
+#
+- name: Remove firewall services
+  ansible.posix.firewalld:
+    service: '{{ item }}'
+    state: disabled
+    immediate: true
+    permanent: true
+  loop:
+    - rpc-bind
+    - mountd
+    - nfs
