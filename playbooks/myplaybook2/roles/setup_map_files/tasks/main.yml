@@ -10,8 +10,8 @@
     mode: 0644
 
 - name: Add map file
-  ansible.builtin.copy:
-    src: map_file
+  ansible.builtin.template:
+    src: map_file.j2
     dest: /etc/auto.rhome
     owner: root
     group: root
