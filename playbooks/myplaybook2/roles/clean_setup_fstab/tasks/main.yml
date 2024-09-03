@@ -9,5 +9,5 @@
     backup: true
   tags: clean_fstab
   loop:
-    - '10.1.31.152'
-    - '10.1.31.153'
+    - '{{ diego_ip }}'
+    - '{{ goku_ip }}'
