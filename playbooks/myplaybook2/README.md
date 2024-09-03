@@ -16,15 +16,20 @@ Playbook 2: cleanup.yml
 
 To get started you must have three different nodes:
 
-Node1: Control Host
-Node2: Client Host 1 (user 'diego' will be established on this node with NFS Shared Home Directory)
-Node3: Client Host 2 (user 'goku' will be established on thsi node with NFS Shared Home Directory)
+    Node1: Control Host
+    Node2: Client Host 1 (user 'diego' will be established on this node with NFS Shared Home Directory)
+    Node3: Client Host 2 (user 'goku' will be established on thsi node with NFS Shared Home Directory)
 
 In order for this playbook to work, you must edit the following files:
+
     1. In inventory_hosts file:
+    
         Add your two Client Host IPs, FQDN, or Aliases under the group [client_hosts]
+        
             If using aliases or FQDN, make sure they resolve in /etc/hosts/ file
+        
         Add the third Control Host IP, FQDN, or Alias under the group [control_host]
+        
             If using aliases or FQDN, make sure it resolves in /etc/hosts/ file
     2. In host_vars directory:
         This directory contains host variables for this project.
