@@ -1,0 +1,6 @@
+---
+# Group Variables for all hosts
+#
+control_host_ip: 10.1.31.151
+diego_ip: 10.1.31.152
+goku_ip: 10.131.153
