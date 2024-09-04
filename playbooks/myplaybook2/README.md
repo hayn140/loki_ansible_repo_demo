@@ -49,3 +49,5 @@ In order for this playbook to work, you must edit the following files:
     4. In ansible.cfg file:
         Without changing the variable name (private_key_file= ), specify the path to the ansible ssh key to use to run these playbooks against your servers
         private_key_file= /path/to/file
+    5. Lastly install the ansible.posix collection, otherwise you won't be able to use the firewalld and mount modules.
+            $ ansible-galaxy collection install ansible.posix
