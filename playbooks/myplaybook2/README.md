@@ -22,7 +22,7 @@ To get started you must have three different nodes:
 
 In order for this playbook to work, you must edit the following files:
 
-    1. In inventory_hosts file:
+    1. In the local inventory file (loki_ansible_repo_procore/playbooks/myplaybook2/inventory_hosts):
     
         Add your two Client Host IPs, FQDN, or Aliases under the group [client_hosts]
         
@@ -31,7 +31,7 @@ In order for this playbook to work, you must edit the following files:
         Add the third Control Host IP, FQDN, or Alias under the group [control_host]
         
             If using aliases or FQDN, make sure it resolves in /etc/hosts/ file
-    2. In host_vars directory:
+    2. In host_vars directory (loki_ansible_repo_procore/playbooks/myplaybook2/host_vars/):
         This directory contains host variables for this project.
         Rename each file with the same IP/FQDN/Alias used int he inventory_hosts file under group [client_hosts] followed by .yml extension
             Ex:
@@ -39,14 +39,14 @@ In order for this playbook to work, you must edit the following files:
         Rename one file for one host, and the other file for the second host.
         Take a look in each file and take note of which user (goku or diego) is associated with each host
             You will use this information in step 3.
-    3. In group_vars directory:
+    3. In group_vars directory (loki_ansible_repo_procore/playbooks/myplaybook2/group_vars/)::
         This directory contains group variables for this project
         Edit the all.yml file as follows:
             Without changing the names of the variables, add the corresponding IP addresses for:
                 diego_ip: ip_addr
                 goku_ip: ip_addr
                 control_host_ip: ip_addr
-    4. In ansible.cfg file:
+    4. In the local ansible.cfg file (loki_ansible_repo_procore/playbooks/myplaybook2/ansible.cfg):
         Without changing the variable name (private_key_file= ), specify the path to the ansible ssh key to use to run these playbooks against your servers
         private_key_file= /path/to/file
     5. Lastly install the ansible.posix collection, otherwise you won't be able to use the firewalld and mount modules.
