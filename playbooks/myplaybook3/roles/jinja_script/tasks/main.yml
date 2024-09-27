@@ -1,0 +1,32 @@
+---
+# tasks file for jinja_script
+- name: Copy script.j2 template
+  ansible.builtin.template:
+    src: script.j2
+    dest: /tmp/script2.sh
+    owner: root
+    group: root
+    mode: 755
+  tags: template, shell
+
+- name: Find previous RESULTS files
+  ansible.builtin.find:
+    path: /tmp/
+    pattern: RESULTS*
+  register: cleanup
+
+- name: Remove all previous RESULTS files
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: absent
+  loop: "{{ cleanup.files }}"
+
+- name: Run script
+  ansible.builtin.command: /tmp/script2.sh
+  register: script_results
+  tags: shell
+
+- name: show results
+  ansible.builtin.debug:
+    var: script_results
+  tags: shell

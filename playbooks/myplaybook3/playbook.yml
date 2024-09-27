@@ -1,0 +1,8 @@
+---
+- name: Copy jinja script and run it
+  hosts: workstations
+  become: true
+  become_user: root
+  become_method: sudo
+  roles:
+    - jinja_script
