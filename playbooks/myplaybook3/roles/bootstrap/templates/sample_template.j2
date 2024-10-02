@@ -1,0 +1,10 @@
+#!/bin/bash
+
+SSP= {{ SSP_NAME }}   #This part of the template will be interpreted ansible
+
+{% raw %}
+
+echo $SSP
+echo "This part of the script will not be interpreted by the ansible.builtin.template module because it resides within the raw/endraw header and footer"
+
+{% endraw %}
